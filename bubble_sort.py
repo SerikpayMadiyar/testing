@@ -22,7 +22,7 @@ def advanced_bubble_sort(arr):
 
 # Example Usage
 if __name__ == "__main__":
-    test_list = [64, 34, 25, 12, 22, 11, 90]
+    test_list = [64, 34, 25, 12, 22, 11, 90,64, 34, 25, 12, 22, 11, 90]
     print("Original list:", test_list)
     
     sorted_list = advanced_bubble_sort(test_list)
