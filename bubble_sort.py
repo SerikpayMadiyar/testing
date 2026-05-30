@@ -1,23 +1,29 @@
-def bubble_sort(arr):
+def advanced_bubble_sort(arr):
     n = len(arr)
-    # Outer loop to traverse through all array elements
-    for i in range(n):
-        # Flag to track if any swapping happened in this pass
-        swapped = False
+    
+    # Continue looping as long as there is an unsorted segment
+    while n > 1:
+        last_swap_index = 0
         
-        # Last i elements are already in place, so skip them
-        for j in range(0, n - i - 1):
-            # Compare adjacent elements
+        for j in range(0, n - 1):
             if arr[j] > arr[j + 1]:
-                # Swap if they are in the wrong order
+                # Swap elements using Python tuple unpacking
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
-                swapped = True
-        
-        # If no two elements were swapped by inner loop, then break
-        if not swapped:
+                # Track the position where the last swap occurred
+                last_swap_index = j + 1
+                
+        # Optimization: everything past the last swap index is already sorted
+        if last_swap_index == 0:
             break
+            
+        n = last_swap_index
+        
+    return arr
 
-# Example usage:
-data = [64, 34, 25, 12, 22, 11, 90]
-bubble_sort(data)
-print("Sorted array:", data)
+# Example Usage
+if __name__ == "__main__":
+    test_list = [64, 34, 25, 12, 22, 11, 90]
+    print("Original list:", test_list)
+    
+    sorted_list = advanced_bubble_sort(test_list)
+    print("Sorted list:  ", sorted_list)
