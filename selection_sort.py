@@ -15,7 +15,7 @@ def selection_sort(arr):
         arr[i], arr[min_index] = arr[min_index], arr[i]
 
 # Example usage
-numbers = [64, 25, 12, 22, 11]
+numbers = [64, 25, 12, 22, 11, 64, 25, 12, 22, 11, 64, 25, 12, 22, 11]
 print("Original list:", numbers)
 
 selection_sort(numbers)
