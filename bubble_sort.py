@@ -46,24 +46,3 @@ if __name__ == "__main__":
     
     sorted_list = advanced_bubble_sort(test_list)
     print("Sorted list:  ", sorted_list)
-
-
-def insertion_sort(arr):
-    # Loop through the list starting from the second element (index 1)
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
-        
-        # Shift elements of the sorted segment forward if they are larger than the key
-        while j >= 0 and arr[j] > key:
-            arr[j + 1] = arr[j]
-            j -= 1
-            
-        # Place the key into its correct sorted location
-        arr[j + 1] = key
-
-# Example usage
-data = [9, 5, 1, 4, 3]
-insertion_sort(data)
-print("Sorted Array:", data)
-# Output: Sorted Array: [1, 3, 4, 5, 9]
