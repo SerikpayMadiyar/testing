@@ -1,41 +1,32 @@
-def bidirectional_selection_sort(arr):
-    n = len(arr)
-    # Left moves forward, right moves backward
-    left = 0
-    right = n - 1
-
-    while left < right:
-        min_idx = left
-        max_idx = left
-
-        # Find both the minimum and maximum in the unsorted segment
-        for i in range(left + 1, right + 1):
-            if arr[i] < arr[min_idx]:
-                min_idx = i
-            elif arr[i] > arr[max_idx]:
-                max_idx = i
-
-        # Swap the found minimum with the left-most unsorted element
-        arr[left], arr[min_idx] = arr[min_idx], arr[left]
-
-        # Critical Edge Case: If the maximum element was at the 'left' index,
-        # it was just swapped to 'min_idx'. We must update max_idx.
-        if max_idx == left:
-            max_idx = min_idx
-
-        # Swap the found maximum with the right-most unsorted element
-        arr[right], arr[max_idx] = arr[max_idx], arr[right]
-
-        # Shrink the boundaries of the unsorted subarray
-        left += 1
-        right -= 1
-
+def binary_insertion_sort(arr):
+    # Loop from the second element up to the end of the array
+    for i in range(1, len(arr)):
+        key = arr[i]
+        
+        # Binary search to find the correct index for 'key'
+        low = 0
+        high = i - 1
+        
+        while low <= high:
+            mid = (low + high) // 2
+            if key < arr[mid]:
+                high = mid - 1
+            else:
+                low = mid + 1
+        
+        # Shift all elements to the right to make room for 'key'
+        for j in range(i, low, -1):
+            arr[j] = arr[j - 1]
+        
+        # Insert the element at its calculated position
+        arr[low] = key
+        
     return arr
 
 # Example Usage
 if __name__ == "__main__":
-    data = [38, 14, 55, 2, 79, 14, 43, 5]
+    data = [37, 23, 0, 17, 12, 72, 31, 46, 100, 88, 54]
     print("Original array:", data)
     
-    sorted_data = bidirectional_selection_sort(data)
+    sorted_data = binary_insertion_sort(data)
     print("Sorted array:  ", sorted_data)
