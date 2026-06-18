@@ -30,3 +30,12 @@ if __name__ == "__main__":
     
     sorted_data = binary_insertion_sort(data)
     print("Sorted array:  ", sorted_data)
+
+### I AM SORRY
+### SORRY
+
+### I AM SORRY
+### SORRY
+
+### I AM SORRY
+### SORRY
